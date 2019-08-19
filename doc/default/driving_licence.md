@@ -19,3 +19,6 @@ Faker::DrivingLicence.northern_irish_driving_licence #=> "70702548"
 # Keyword arguments: last_name, initials, date_of_birth, gender
 Faker::DrivingLicence.uk_driving_licence             #=> "OCARR815246J91HT"
 Faker::DrivingLicence.uk_driving_licence             #=> "70702548"
+
+# Generate a US driving license number
+Faker::DrivingLicence.us_driving_licence('CA')

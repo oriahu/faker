@@ -30,6 +30,10 @@ module Faker
         end
       end
 
+      def us_driving_licence(state_abbreviation: 'CA')
+        bothify(fetch('driving_license.number_by_state.' + state_abbreviation))
+      end
+
       private
 
       def random_gender

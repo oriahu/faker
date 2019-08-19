@@ -42,6 +42,15 @@ class TestFakerDrivingLicence < Test::Unit::TestCase
     assert_includes [8, 16], sample.length
   end
 
+  def test_us_driving_licence
+    sample = @tester.us_driving_licence(state_abbreviation: 'AL')
+    assert_match %r{\d{7}}, sample
+    sample = @tester.us_driving_licence(state_abbreviation: 'CA')
+    assert_match %r{[A-Za-z][0-9]}, sample
+    sample = @tester.us_driving_licence(state_abbreviation: 'NH')
+    assert_match %r{\d{2}[A-Za-z]{3}\d{5}}, sample
+  end
+
   def test_british_licence_correctly_mangles_last_name
     padded = @tester.british_driving_licence(last_name: 'Judd')
     assert_equal 'JUDD9', padded[0..4]
